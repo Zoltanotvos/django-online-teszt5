@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Bejelentkezés</title>
+{% endblock title %}
+{% block tartalom %}
+    <form method="post">
+        {% csrf_token %}
+        <div style="width: 210px; margin-left: 10px; margin-bottom: 20px;">
+            <span class="input-group-text" id="basic-addon1">Írja be a felhasználónevet</span>
+            <input type="text" class="form-control" placeholder="felhasználónév" aria-label="felhasználónév" aria-describedby="basic-addon1" name="felhasználónév" id="felhasználónév" style="width: fit-content;">
+            <span class="input-group-text" id="basic-addon1">Adja meg a jelszót</span>
+            <input type="password" class="form-control" placeholder="jelszó" aria-label="jelszó" aria-describedby="basic-addon1" name="jelszó" id="jelszó" style="width: fit-content;">
+        </div>
+        <input type="submit" class="btn btn-outline-dark" value="bejelentkezés" name="bejelentkezés" id="bejelentkezés" onclick="kiír()" style="margin-left: 10px;">
+    </form>
+      
+    <script>
+        
+        function kiír(){
+            a = "{{igené}}"
+            
+            if(a == "True"){
+                alert("a jelszó nem jó")
+                
+            
+            }
+        }
+    </script>
+{% endblock tartalom %}
