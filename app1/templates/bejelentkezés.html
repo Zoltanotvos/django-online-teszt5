@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Bejelentkezés</title>
+{% endblock title %}
+{% block tartalom %}
+    <form method="post">
+        {% csrf_token %}
+        <div style="width: 210px; margin-left: 10px; margin-bottom: 20px;">
+            <span class="input-group-text" id="basic-addon1">Adja meg az e-mail címet</span>
+            <input type="text" name="username" maxlength="150" required id="id_username" style="width: fit-content;">
+            <span class="input-group-text" id="basic-addon1">Adja meg a jelszót</span>
+            <input type="password" name="password" required id="id_password" style="width: fit-content;">
+        </div>
+        <input type="submit" class="btn btn-outline-dark" value="bejelentkezés" name="bejelentkezés" id="bejelentkezés" style="margin-left: 10px;">
+    </form>
+{% endblock tartalom %}
+{% block szkript %}
+<script>
+    a = "{{igené}}"
+    a = parseInt(a)
+    if(a == 2){
+        alert("a jelszó nem jó")
+        a = 1
+    }
+</script>
+{% endblock szkript %}

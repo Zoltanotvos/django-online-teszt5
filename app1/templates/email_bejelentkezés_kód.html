@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Visszaigazolás</title>
+{% endblock title %}
+{% block tartalom %}
+<form method="post">
+    {% csrf_token %}
+    <div style="width: 210px; margin-left: 10px; margin-bottom: 20px;">
+        <span class="input-group-text" id="basic-addon1">Írja be a kódot</span>
+        <input type="text" class="form-control" placeholder="visszaigazoló kód" aria-label="kód" aria-describedby="basic-addon1" name="kód" id="kód" style="width: fit-content;">
+    </div>
+    <input type="submit" class="btn btn-outline-dark" value="bejelentkezés" name="visszaigazol" id="visszaigazol" style="margin-left: 10px;">
+</form>
+<script>
+    alertez = "{{email_cód_hiba}}"
+    alertez = parseInt(alertez)
+    if(alertez == 1){
+        alert("a kód nem jó")
+    }
+    if(parseInt("{{zárol}}")==1){
+        document.getElementById("sufnilock").style.visibility = "visible"
+    }
+    else if(parseInt("{{zárol}}")==0){
+        document.getElementById("sufnilock").style.visibility = "hidden"
+    }
+</script>
+{% endblock tartalom %}

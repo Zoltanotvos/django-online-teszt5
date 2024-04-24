@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}
+<title>választó</title>
+{% endblock title %}
+{% block tartalom %}
+    <button onclick="window.location.href='{% url "főoldal"%}'">vissza</button>
+    <button onclick="window.location.href='{% url "soundboard"%}'">soundboard</button>
+    <button onclick="window.location.href='{% url "zotler"%}'">zotler gif</button>
+{% endblock tartalom %}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+
+    {% endblock title %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark" id="navigáció">
+      <div class="container-fluid ">
+          <a class="navbar-brand">Menü</a>
+          <button class="navbar-toggler ms-5" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <div class="dropdown" id="sufni2">
+                  <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    
+                    <i class="bi bi-person-circle"></i>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="{% url "bejelentkezés" %}">Bejelentkezés</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url "főoldal" %}">Főoldal</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url "rólunk" %}">Rólunk</a>
+              </li>
+              <li>
+                <button type="button" class="btn btn-outline-light" onclick="window.location.href='https://discord.gg/9QH5Myzffw'">
+                  Discord
+                  <i class="bi bi-discord"></i>
+                </button>
+
+              </li>
+            </ul>
+            
+          </div>
+          
+      </div>
+    </nav>
+    {% if not user.is_authenticated %}
+    <nav class="navbar navbar-secondary bg-secondary" id="sufnilock" style="position: absolute; left: 0px; top: 0px;">
+      <div class="container-fluid ">
+          
+          <a class="navbar-brand">Menü</a>
+          <button class="navbar-toggler ms-5" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <p>A navigációs menü használatához be kell jelentkezni!</p>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url "rólunk" %}">Rólunk</a>
+              </li>
+            </ul>
+          </div>
+      </div>
+    </nav>
+    {% endif %}  
+    <div class="dropdown" id="sufni" style="position: absolute; top: 10px;">
+      <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        
+        <i class="bi bi-person-circle"></i>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-dark">
+        <li><a class="dropdown-item" href="{% url "bejelentkezés" %}">Bejelentkezés</a></li>
+        <li><a class="dropdown-item" href="{% url "kijelentkezés" %}">Kijelentkezés</a></li>
+      </ul>
+    </div>
+    {% block tartalom %}
+    {% endblock tartalom %}
+    
+    
+    
+</body>
+<script>
+  function navbar(){
+    szél = document.body.clientWidth
+    
+    if (window.innerWidth>=320) {
+      document.getElementById("sufni").style.display=""
+      document.getElementById("sufni").style.left= szél-135+"px"
+      document.getElementById("sufni2").style.display = "none"
+    }
+    else{
+      document.getElementById("sufni").style.display = "none"
+      document.getElementById("sufni2").style.display = ""  
+    }
+    document.getElementById("navigáció").style.width = szél+"px"
+    document.getElementById("sufnilock").style.width = document.getElementById("navigáció").style.width
+  requestAnimationFrame(navbar)
+  }
+  navbar()
+</script>
+{% block szkript %}
+{% endblock szkript %}
+</html>

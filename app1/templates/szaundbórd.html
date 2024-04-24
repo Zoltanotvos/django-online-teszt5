@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Soundboard</title>
+    <style>
+      .gombostű{
+        margin: 20px;
+      }
+      .gomb{
+        margin: 20px;
+      }
+    </style>
+{% endblock title %}
+{% block tartalom %}
+<button onclick="window.location.href='{% url "választó"%}'">vissza</button>
+
+<button id ="Play_Button1" class="gomb">ez nem mónika só</button>
+<button class="gomb" id="Play_Button2">büdös kölke</button>
+<button class="gomb" id="Play_Button3">ez jó kérdés</button>
+<button class="gomb" id="Play_Button4">lobott</button>
+<button class="gomb" id="Play_Button5">gyere le nyusti</button>
+<button class="gomb" id="Play_Button6">pityubá</button>
+<button class="gomb" id="Play_Button7">rendben Bálint</button>
+<button class="gomb" id="Play_Button8">takarodj ki innen</button>
+
+<script>
+  function Play_Audio1(){
+    var audioElement1 = document.createElement("audio");
+    audioElement1.src = "https://raw.githubusercontent.com/Zoltanotvos/zenee/master/Hangfelvételek1/Mónika só.mp3";
+    document.getElementById("Play_Button1").addEventListener("click", function(music){
+      audioElement1.play();
+    }, false);
+  }
+  Play_Audio1();
+  function Play_Audio2(){
+    var audioElement2 = document.createElement("audio");
+    audioElement2.src = "https://raw.githubusercontent.com/Zoltanotvos/zenee/master/Hangfelvételek1/büdös kölke.mp3";
+    document.getElementById("Play_Button2").addEventListener("click", function(music){
+      audioElement2.play();
+    }, false);
+  }
+  Play_Audio2();
+  function Play_Audio3(){
+    var audioElement3 = document.createElement("audio");
+    audioElement3.src = "https://raw.githubusercontent.com/Zoltanotvos/zenee/master/Hangfelvételek1/ez jó kérdés.mp3";
+    document.getElementById("Play_Button3").addEventListener("click", function(music){
+      audioElement3.play();
+    }, false);
+  }
+  Play_Audio3();
+  function Play_Audio4(){
+    var audioElement4 = document.createElement("audio");
+    audioElement4.src = "https://raw.githubusercontent.com/Zoltanotvos/zenee/master/Hangfelvételek1/lobott.mp3";
+    document.getElementById("Play_Button4").addEventListener("click", function(music){
+      audioElement4.play();
+    }, false);
+  }
+  Play_Audio4();
+  function Play_Audio5(){
+    var audioElement5 = document.createElement("audio");
+    audioElement5.src = "https://raw.githubusercontent.com/Zoltanotvos/zenee/master/Hangfelvételek1/nyusti.mp3";
+    document.getElementById("Play_Button5").addEventListener("click", function(music){
+      audioElement5.play();
+    }, false);
+  }
+  Play_Audio5();
+  function Play_Audio6(){
+    var audioElement6 = document.createElement("audio");
+    audioElement6.src = "https://raw.githubusercontent.com/Zoltanotvos/zenee/master/Hangfelvételek1/pityubá.mp3";
+    document.getElementById("Play_Button6").addEventListener("click", function(music){
+      audioElement6.play();
+    }, false);
+  }
+  Play_Audio6();
+  function Play_Audio7(){
+    var audioElement7 = document.createElement("audio");
+    audioElement7.src = "https://raw.githubusercontent.com/Zoltanotvos/zenee/master/Hangfelvételek1/rendben Bálint.mp3";
+    document.getElementById("Play_Button7").addEventListener("click", function(music){
+      audioElement7.play();
+    }, false);
+  }
+  Play_Audio7();
+  function Play_Audio8(){
+    var audioElement8 = document.createElement("audio");
+    audioElement8.src = "https://raw.githubusercontent.com/Zoltanotvos/zenee/master/Hangfelvételek1/takarodj ki.mp3";
+    document.getElementById("Play_Button8").addEventListener("click", function(music){
+      audioElement8.play();
+    }, false);
+  }
+  Play_Audio8();
+</script>
+{% endblock tartalom %}

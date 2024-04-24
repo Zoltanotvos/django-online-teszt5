@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Főoldal</title>
+{% endblock title %}
+{% block tartalom %}
+
+    <!-- <img src="https://raw.githubusercontent.com/Zoltanotvos/gif/master/kázébés.jpg" alt="" id="kép"> -->
+    {{user.is_authenticated}}
+    {{user.email}}
+{% endblock tartalom %}
+{% block szkript %}
+<script>
+    function képes() {
+        document.getElementById("kép").style.width = document.getElementById("navigáció").style.width
+        requestAnimationFrame(képes)
+    }
+    képes()
+</script>
+{% endblock szkript %}
